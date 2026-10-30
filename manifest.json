@@ -1,0 +1,23 @@
+{
+    "name":"YouTube stats",
+    "version":"1.0",
+    "manifest_version":3,
+    "description":"",
+    "background":{
+        "service_worker":"background.js"
+    },
+    "content_scripts":[
+        {
+            "js":[
+                "content.js"
+            ],
+            "matches":[
+                "https://*.youtube.com/*"
+            ]
+        }
+    ],
+    "action":{
+        "default_popup":"popup.html"
+    },
+    "permissions":["storage","alarms","activeTab"]
+}
