@@ -1,4 +1,4 @@
-const APIKEY=await chrome.storage.local.get("apiKey");
+const APIKEY=chrome.storage.local.get("apiKey");
 chrome.runtime.onInstalled.addListener(async()=>{
     console.log("Installed");
     await chrome.alarms.create("update",{
