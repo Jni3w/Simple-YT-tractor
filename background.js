@@ -8,7 +8,8 @@ chrome.runtime.onInstalled.addListener(async()=>{
 
 chrome.alarms.onAlarm.addListener(()=>{
     console.log("Updated");
-    getData();
+    update();
+    
 })
 
 async function getData(videoID){
@@ -25,5 +26,13 @@ async function getData(videoID){
     catch(e){
         console.error(e);
     }
-
 }
+
+async function update(){
+    let videoList=await chrome.storage.local.get("videoList") ?? "";
+    if(videoList){
+        for(const key in videoList){
+            getData(key);
+        }
+    }
+} 
